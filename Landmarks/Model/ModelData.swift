@@ -6,9 +6,16 @@
 //
 
 import Foundation
+import Combine
 
+// 관찰되는 대상 ObservableObject 프로토콜 채택
+// 여기에 있는 데이터를 계속해서 구독하고 있다가
+// 이 값이 바뀌게 되면 그 관련된 뷰들을 모두 refresh 해준다.
 
-var landmarks: [Landmark] = load("landmarkData.json")
+final class ModelData: ObservableObject {
+    @Published var landmarks: [Landmark] = load("landmarkData.json")
+}
+
 
 // codable한 것만 리턴할 수 있다.
 func load<T: Decodable>(_ filename: String) -> T {
