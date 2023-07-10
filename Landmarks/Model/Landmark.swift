@@ -15,6 +15,7 @@ struct Landmark: Hashable, Codable, Identifiable {
     var park: String
     var state: String
     var description: String
+    var isFavorite: Bool
     
     private var imageName: String
     // image를 불렀을 때, 그 구조체의 imageName으로 만든 image를 리턴해주는 계산속성
